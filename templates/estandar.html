@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    {% block head %} {% endblock %}
+
+</head>
+
+<body>
+
+    <form action="/busqueda" method="POST" class="mt-2 mx-2">
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <button class="btn btn-outline-secondary" type="submit" id="button-addon1">Buscar</button>
+          </div>
+          <input type="text" class="form-control" placeholder="Ingrese su búsqueda aquí" name="content" id="content">
+        </div>
+    </form>
+
+    {% block body %} {% endblock %}
+
+</body>
+</html>

@@ -1,0 +1,64 @@
+{% extends 'estandar.html' %}
+
+{% block head %} 
+    <title>Búsqueda</title>
+{% endblock %}
+
+{% block body %}
+<div>
+    <div class="row justify-content-start">
+
+
+        <div class="col-4">
+            <table class="table my-4 mx-2 table-sm w-75">
+
+                <thead class="thead-light ">
+                    <tr><th>Episodios</th></tr>
+                </thead>
+
+                <tbody>
+                {%for episodio in episodios%}
+                    <tr><td><a href="/episodio/{{episodio['id']}}">{{episodio['name']}}</a></td></tr>
+                {%endfor%}
+                </tbody>
+
+            </table>
+        </div>
+
+
+        <div class="col-sm">
+            <table class="table my-4 mx-2 table-sm w-75">
+                  <thead class="thead-light ">
+                      <tr><th>Personajes</th></tr>
+                  </thead>
+
+                  <tbody>
+                  {%for personaje in personajes%}
+                        <tr><td><a href="/personaje/{{personaje['id']}}">{{personaje['name']}}</a></td></tr>
+                  {%endfor%}    
+                  </tbody>
+
+            </table>
+        </div>
+
+
+        <div class="col-sm">
+            <table class="table my-4 mx-2 table-sm w-75">
+
+                <thead class="thead-light ">
+                      <tr><th>Lugares</th></tr>
+                </thead>
+
+                <tbody>
+                {%for lugar in lugares%}
+                    <tr><td><a href="/lugar/{{lugar['id']}}">{{lugar['name']}}</a></td></tr>
+                {%endfor%}
+                </tbody>
+
+            </table>
+        </div>
+
+
+    </div>
+</div>
+{% endblock %}

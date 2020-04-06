@@ -1,0 +1,36 @@
+{% extends 'estandar.html' %}
+
+{% block head %} 
+    <title>Episodio</title>
+{% endblock %}
+
+{% block body %} 
+<table class="table my-4 mx-2 table-sm w-75">
+
+    <thead class="thead-light ">
+
+        <tr>
+            <th>Episodio</th>
+            <th>Nombre</th>
+            <th>Fecha al aire</th>
+            <th>Personajes</th>
+        </tr>
+
+    </thead>
+
+    <tbody>
+
+        <tr>
+            <td>{{episodio['episode']}}</td>
+            <td>{{episodio['name']}}</td>
+            <td>{{episodio['air_date']}}</td>
+            <td>{%for personaje in personajes%}
+                <a href="/personaje/{{personaje['id']}}">{{personaje['name']}}</a><br>                  
+                {%endfor%}
+            </td>
+        </tr>
+
+    </tbody>
+
+</table>
+{% endblock %}

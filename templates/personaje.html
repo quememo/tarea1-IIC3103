@@ -1,0 +1,71 @@
+{% extends 'estandar.html' %}
+
+{% block head %} 
+    <title>Personaje</title>
+{% endblock %}
+
+{% block body %} 
+<table class="table my-4 mx-2 table-sm w-75">
+
+    <thead class="thead-light ">
+
+        <tr>
+            <th>Nombre</th>
+            <th>Status</th>
+            <th>Especie</th>
+            <th>Tipo</th>
+            <th>Género</th>
+            <th>Origen</th>
+            <th>Lugar</th>
+            <th>Foto</th>
+            <th>Episodios</th>
+        </tr>
+
+    </thead>
+
+
+
+    <tbody>
+
+        <tr>
+            <td>{{personaje['name']}}</td>
+            <td>{{personaje['status']}}</td>
+            <td>{{personaje['species']}}</td>
+            <td>{{personaje['type']}}</td>
+            <td>{{personaje['gender']}}</td>
+
+
+            <td>
+                {%if personaje['origin']['name']=='unknown'%}
+                    unknown
+                {%else%}
+                    <a href="/lugar/{{personaje['origin']['url'].split('/')[-1]}}">{{personaje['origin']['name']}}</a>
+                {%endif%}
+            </td>
+
+
+            <td>
+                {%if personaje['location']['name']=='unknown'%}
+                    unknown
+                {%else%}
+                    <a href="/lugar/{{personaje['location']['url'].split('/')[-1]}}">{{personaje['location']['name']}}</a>
+                {%endif%}
+            </td>
+
+
+            <td><img src="{{personaje['image']}}" class="img-thumbnail"></td>
+
+
+            <td>{%for episodio in episodios%}
+                    <a href="/episodio/{{episodio['id']}}">{{episodio['name']}}</a><br>
+                {%endfor%}
+            </td>
+
+            
+        </tr>
+
+    </tbody>
+
+
+</table>
+{% endblock %}

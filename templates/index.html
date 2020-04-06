@@ -1,0 +1,33 @@
+{% extends 'estandar.html' %}
+
+{% block head %} 
+    <title>Index Episodios</title>
+{% endblock %}
+
+{% block body %} 
+<table class="table my-4 mx-2 table-sm w-75">
+
+    <thead class="thead-light ">
+
+        <tr>
+            <th>Código</th>
+            <th>Nombre</th>
+            <th>Fecha al aire</th>
+        </tr>
+
+    </thead>
+
+    <tbody>
+
+        {%for episodio in episodios%}
+        <tr>
+            <td>{{episodio['id']}}</td>
+            <td><a href="episodio/{{episodio['id']}}">{{episodio['name']}}</a></td>
+            <td>{{episodio['air_date']}}</td>
+        </tr>
+        {%endfor%}
+
+    </tbody>
+
+</table>
+{% endblock %}
